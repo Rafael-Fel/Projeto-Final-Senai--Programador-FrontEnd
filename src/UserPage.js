@@ -7,7 +7,6 @@ export default function UserPage({ userEmail }) {
     const photosStorageUser = new PhotosStorageService();
     let photosItemUser = ('');
     let userData = ('')
-
     useEffect(() => {
         loadListUser();
     }, [userEmail]);
@@ -16,7 +15,6 @@ export default function UserPage({ userEmail }) {
         if (userEmail !== undefined) {
             const userPhotos = photosStorageUser.getList(`/users/${userEmail}`);
             userPhotos.then((data) => {
-                console.log(userEmail);
                 if (Array.isArray(data) && data.length > 0) {
                     setUserDataPhotos(data)
 
@@ -26,16 +24,15 @@ export default function UserPage({ userEmail }) {
     }
 
     return (
-        photosItemUser = userdataphotos.map((item, index) => {
+        photosItemUser = userdataphotos.map((item, index, photos) => {
             if (item.email == userEmail)
                 userData = item
-            console.log(userData)
             return (
-                <div className="Cointainer-UserPg">
+                <div className="Cointainer-UserPg" key={index}>
                     <ul className="" >
-                        <li className="ContainerPhotoPg" key={index}>
+                        <li className="ContainerPhotoPg" >
                             <div className="UserPhotoPg">
-                                <div className=""><img src={userData} /></div>
+                                <div className=""><img src={userData.photos} /></div>
                                 <div className="UserName"><p>{userData.name}</p></div>
                             </div>
                         </li>
