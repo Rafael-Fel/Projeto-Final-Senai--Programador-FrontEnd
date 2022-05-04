@@ -1,0 +1,44 @@
+div.Cointainer-UserPg{
+    display: flex;
+    background-color: aquamarine;
+    width: 1366px;
+    place-content: center;
+    justify-content: center;
+    
+    
+}
+div.Cointainer-UserPg ul{
+    display: flex;
+    width: 490px;
+    flex-direction: row;
+}
+div.Cointainer-UserPg li{
+    display: flex;
+    width: 450px;
+}
+div.UserPhotoPg{
+    display: flex;
+    position: relative;
+    width: 418px;
+    height: 400px;
+    margin: 20px;
+    background-color: white;
+    border: 9px solid white;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .8);
+}
+div.UserPhotoPg img {
+    width: 400px;
+    height: 300px;
+    border-radius: 6px;
+}
+div.UserPhotoPg .UserName p{
+    position: absolute;
+    width:280px ;
+    top: 260px;
+    right: 70px;
+    font-size: 30pt;
+    font-weight: bold;
+    color: rgb(143, 143, 1);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+}

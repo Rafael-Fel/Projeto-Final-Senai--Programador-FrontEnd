@@ -1,0 +1,40 @@
+div.Container-1 {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 1366px;
+    place-items: center;
+}
+
+div.PhotoBookBanner {
+    display: flex;
+    position: relative;
+    width: 1366px;
+    height: 270px;
+    background-color: aquamarine;  
+    place-content: center;
+    
+}
+
+div.PhotoBookBanner h1{
+    margin-top: 200px;
+    font-family: fantasy;
+    font-size: 60pt;
+    text-shadow: 6px 6px 6px rgba(0, 0, 0, .6);
+}
+
+.simbolo{
+    text-align: center;
+    font-size: 80pt;
+    text-shadow: 6px 6px 6px rgba(0, 0, 0, .6);
+    
+}
+.simbolo a{
+    transition: .6s;
+}
+
+.simbolo a:hover{
+    font-size: 90pt;
+    text-shadow: 9px 9px 9px rgba(0, 0, 0, .6);
+}

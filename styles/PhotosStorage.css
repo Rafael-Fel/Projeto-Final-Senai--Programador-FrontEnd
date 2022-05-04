@@ -1,0 +1,60 @@
+.ContainerPhoto {
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+}
+
+.UserPhoto {
+    display: flex;
+    width: 500px;
+    height: 550px;
+    margin: 200px;
+    margin-left: 380px;
+    background-color: white;
+    border: 9px solid white;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .8);
+
+}
+
+.UserPhoto img {
+    width: 482px;
+    height: 372px;
+    border-radius: 6px;
+}
+
+.UserInfo {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 900px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.UserPhoto div.UserName {
+    position: absolute;
+    top: 340px;
+    left: -469px;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(143, 143, 1);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+}
+
+.UserPhoto div.UserEmail {
+    position: absolute;
+    top: 390px;
+    left: -449px;
+    font-size: 13pt;
+    color: dimgray;
+    font-weight: bold;
+}
+
+.UserPhoto div.PhotoText {
+    position: absolute;
+    top: 426px;
+    left: -360px;
+    font-size: 18pt;
+    color: rgb(85, 84, 84);
+}
