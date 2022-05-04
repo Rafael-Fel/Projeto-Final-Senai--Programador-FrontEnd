@@ -8,10 +8,7 @@ const User = () => {
     useEffect(() => {
       setEmail(router.query.email);
   }, [router.query.email]);
-console.log(email)
-  
-  
-    
+      
   return ( 
       <UserPage userEmail={email}/>
   )
