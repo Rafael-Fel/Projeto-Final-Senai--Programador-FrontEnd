@@ -14,7 +14,7 @@ export default function PhotosStorage() {
     }, []);
 
     const loadList = () => {
-        const userPhotos = photosStorageService.getList('/Photos');
+        const userPhotos = photosStorageService.getList('/photos');
         userPhotos.then((data) => {
             if (Array.isArray(data) && data.length > 0) {
                 setUserdata(data)
@@ -25,8 +25,8 @@ export default function PhotosStorage() {
         photosItem = userdata.map((item, index) => {
             userDataItem = item
             return (
-                <ul className="ContainerPhoto" id="ContainerPhoto">
-                    <li className="ContainerPhoto" key={index}>
+                <ul className="ContainerPhoto" id="ContainerPhoto" key={index}>
+                    <li className="ContainerPhoto" >
                         <div className="UserPhoto">
                             <img src={userDataItem.url} />
                             <div className="UserInfo">
