@@ -1,46 +1,63 @@
 import PhotosStorageService from "./Services/PhotosStorageService";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 
 export default function UserPage({ userEmail }) {
     const [userdataphotos, setUserDataPhotos] = useState([]);
-    const photosStorageUser = new PhotosStorageService();
+
     let photosItemUser = ('');
     let userData = ('')
+    const userEmailurl = userEmail
+    const userPhotos = ('')
+    const photosStorageUser = getList();
+
+    function getList() {
+        return axios
+            .get(`https://senaigram.herokuapp.com/users/${userEmailurl}`)
+            .then((response) => {
+                return response.data;
+            })
+            .catch((error) => {
+            });
+    }
+
+
     useEffect(() => {
-        loadListUser();
-    }, [userEmail]);
+        if (userEmailurl !== undefined && userEmailurl !== '') {
+            loadListUser();
+        }
+    }, [userEmailurl]);
 
     const loadListUser = () => {
-        if (userEmail !== undefined) {
-            const userPhotos = photosStorageUser.getList(`/users/${userEmail}`);
-            userPhotos.then((data) => {
-                if (Array.isArray(data) && data.length > 0) {
+        if (userEmailurl !== undefined) {
+            photosStorageUser.then((data) => {
+                if (typeof data === "object") {
                     setUserDataPhotos(data)
-
                 }
             })
         }
     }
 
-    return (
-        photosItemUser = userdataphotos.map((item, index, photos) => {
-            if (item.email == userEmail)
-                userData = item
-            return (
-                <div className="Cointainer-UserPg" key={index}>
-                    <ul className="" >
-                        <li className="ContainerPhotoPg" >
-                            <div className="UserPhotoPg">
-                                <div className=""><img src={userData.photos} /></div>
-                                <div className="UserName"><p>{userData.name}</p></div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
 
-            )
-        })
+    return (
+        userdataphotos.photos !== undefined && (
+            photosItemUser = userdataphotos.photos.map((item, index) => {
+                userData = item
+                return (
+                    <div className="Cointainer-UserPg" key={index}>
+                        <ul className="" >
+                            <li className="ContainerPhotoPg" >
+                                <div className="UserPhotoPg">
+                                    <div className=""><img src={userData.url} /></div>
+                                    <div className="UserName"><p>{userdataphotos.name}</p></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                )
+            }))
 
     )
 
